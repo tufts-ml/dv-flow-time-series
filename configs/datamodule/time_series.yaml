@@ -1,0 +1,13 @@
+_target_: src.datamodules.time_series_datamodule.GluontsDataModule
+
+
+batch_size: 32
+num_workers: 8
+pin_memory: False
+
+data_name: "kdd_cup_2018_without_missing"
+context_len: 24                  
+prediction_len: 24
+num_batches_train_test_split: [100, 1]
+
+

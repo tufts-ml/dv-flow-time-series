@@ -1,0 +1,10 @@
+# @package _global_
+
+# Callback-driven training: keep a large Trainer.max_epochs and let
+# EarlyStopping decide when validation loss has stopped improving.
+trainer:
+  max_epochs: 100000
+
+callbacks:
+  early_stopping:
+    patience: ${callback_patience}

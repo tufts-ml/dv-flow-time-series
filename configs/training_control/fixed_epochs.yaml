@@ -1,0 +1,26 @@
+# @package _global_
+
+# Fixed-length training: run exactly train_epochs by disabling EarlyStopping
+# and setting Trainer.max_epochs to the requested value.
+trainer:
+  max_epochs: ${train_epochs}
+
+callbacks:
+  early_stopping: null
+  model_checkpoint:
+    save_last: False
+  last_checkpoint:
+    _target_: pytorch_lightning.callbacks.ModelCheckpoint
+    dirpath: ${paths.output_dir}/checkpoints
+    filename: "unused_last_{epoch:04d}"
+    monitor: null
+    verbose: False
+    save_last: True
+    save_top_k: 0
+    mode: "min"
+    auto_insert_metric_name: False
+    save_weights_only: False
+    every_n_train_steps: null
+    train_time_interval: null
+    every_n_epochs: 1
+    save_on_train_epoch_end: True
